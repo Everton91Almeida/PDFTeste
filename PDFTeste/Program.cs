@@ -4,6 +4,7 @@ using iTextSharp.text.pdf.parser;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace PDFTeste
 {
@@ -11,12 +12,12 @@ namespace PDFTeste
     {
         static void Main(string[] args)
         {
+            var texto = new StringBuilder();
             foreach (var item in ExtractPages())
             {
-                Console.WriteLine("########## INICIO ##########");
-                Console.WriteLine(pdfText(item));
-                Console.WriteLine("########## FIM ##########");
+                texto.AppendLine(pdfText(item));
             }
+            Console.WriteLine(texto.ToString());
             Console.Read();
         }
 
